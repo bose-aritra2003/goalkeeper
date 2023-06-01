@@ -6,18 +6,17 @@ import useBoardStore from "@/app/store/BoardStore";
 import Column from "@/app/components/Column";
 
 const Board = () => {
-  const [board, getBoard, setBoardState, updateTodoInDB] = useBoardStore((state) => [
+  const [board, getBoard, setBoardState] = useBoardStore((state) => [
     state.board,
     state.getBoard,
     state.setBoardState,
-    state.updateTodoInDB,
   ]);
 
   useEffect(() => {
     getBoard();
   }, [getBoard])
 
-  const handleOnDragEnd = (result: DropResult) => {
+  const handleOnDragEnd = async (result: DropResult) => {
     const { destination, source, type } = result
 
     if (!destination) {
@@ -94,8 +93,33 @@ const Board = () => {
         todos: finishTodos,
       });
 
-      // Update in DB
-      updateTodoInDB(todoMoved, finishCol.id);
+      // Update in database
+      try {
+        await fetch(`/api/todos/${todoMoved.id}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            status: finishCol.id,
+          }),
+        });
+      } catch (error) {
+        try {
+          await fetch(`/api/todos/${todoMoved.id}`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              status: finishCol.id,
+            }),
+          });
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
 
       setBoardState({
         ...board,

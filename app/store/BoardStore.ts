@@ -7,7 +7,6 @@ interface BoardState {
   board: Board;
   getBoard: () => void;
   setBoardState: (board: Board) => void;
-  updateTodoInDB: (todo: Todo, columnId: TypedColumn) => void;
 
   newTaskInput: string;
   setNewTaskInput: (searchString: string) => void;
@@ -34,17 +33,6 @@ const useBoardStore = create<BoardState>()((set, get) => ({
     set({ board });
   },
   setBoardState: (board) => set({ board }),
-  updateTodoInDB: async (todo, columnId) => {
-    await fetch(`/api/todos/${todo.id}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        status: columnId,
-      }),
-    });
-  },
 
   newTaskInput: "",
   setNewTaskInput: (input: string) => set({ newTaskInput: input }),
