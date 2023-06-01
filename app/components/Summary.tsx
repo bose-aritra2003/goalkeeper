@@ -16,12 +16,25 @@ const Summary = () => {
     if (board.columns.size === 0) {
       return;
     }
-    setLoading(true);
 
     (async () => {
-      const summary = await getSummary(board);
-      setSummary(summary);
-      setLoading(false);
+      setLoading(true);
+      try {
+        const summary = await getSummary(board);
+        setSummary(summary);
+      } catch (error: any) {
+        try {
+          const summary = await getSummary(board);
+          setSummary(summary);
+        } catch (error: any) {
+          console.error(error);
+          setSummary("GPT is having trouble summarising your tasks for the day...");
+        } finally {
+          setLoading(false);
+        }
+      } finally {
+        setLoading(false);
+      }
     })();
   }, [board]);
 
