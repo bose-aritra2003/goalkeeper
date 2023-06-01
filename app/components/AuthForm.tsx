@@ -34,7 +34,7 @@ const AuthForm = () => {
     setIsLoading(true);
     if (variant === "register") {
       try {
-        const res = await fetch('/api/register', {
+        const res = await fetch('https://goal-keeper.vercel.app/api/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
