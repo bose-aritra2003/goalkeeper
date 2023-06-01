@@ -2,7 +2,7 @@ import { Board, Column, TypedColumn } from "@/app/types";
 import { Todo } from "@prisma/client";
 
 const getTodosGroupedByColumn = async () => {
-  const res = await fetch('http://localhost:3000/api/todos', {
+  const res = await fetch('https://goal-keeper.vercel.app/api/todos', {
     cache: "no-store"
   });
   const { todos }: { todos: Todo[] } = await res.json();

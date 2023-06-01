@@ -21,7 +21,7 @@ const getSummary = async (board: Board) => {
 
   const todos = formatTodosForGPT(board);
 
-  const res = await fetch("http://localhost:3000/api/summary", {
+  const res = await fetch("https://goal-keeper.vercel.app/api/summary", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
