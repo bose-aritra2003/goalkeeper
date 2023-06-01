@@ -35,78 +35,74 @@ const Board = () => {
         ...board,
         columns: rearrangedColumns,
       });
-    }
-
-    const columns = Array.from(board.columns);
-    const startColIndex = columns[Number(source.droppableId)];
-    const finishColIndex = columns[Number(destination.droppableId)];
-
-    const startCol = {
-      id: startColIndex[0],
-      todos: startColIndex[1].todos
-    }
-
-    const finishCol = {
-      id: finishColIndex[0],
-      todos: finishColIndex[1].todos
-    }
-
-    if (!startCol || !finishCol) {
-      return;
-    }
-
-    if (source.index === destination.index && startCol === finishCol) {
-      return;
-    }
-
-    const newTodos = startCol.todos;
-    const [todoMoved] = newTodos.splice(source.index, 1);
-
-    if (startCol.id === finishCol.id) {
-      newTodos.splice(destination.index, 0, todoMoved);
-
-      const newCol = {
-        id: startCol.id,
-        todos: newTodos,
-      };
-
-      const newColumns = new Map(board.columns);
-      newColumns.set(startCol.id, newCol);
-
-      setBoardState({
-        ...board,
-        columns: newColumns,
-      })
     } else {
-      const finishTodos = Array.from(finishCol.todos);
-      finishTodos.splice(destination.index, 0, todoMoved);
+      const columns = Array.from(board.columns);
+      const startColIndex = columns[Number(source.droppableId)];
+      const finishColIndex = columns[Number(destination.droppableId)];
 
-      const newColumns = new Map(board.columns);
-      const newCol = {
-        id: startCol.id,
-        todos: newTodos,
-      };
+      const startCol = {
+        id: startColIndex[0],
+        todos: startColIndex[1].todos
+      }
 
-      newColumns.set(startCol.id, newCol);
-      newColumns.set(finishCol.id, {
-        id: finishCol.id,
-        todos: finishTodos,
-      });
+      const finishCol = {
+        id: finishColIndex[0],
+        todos: finishColIndex[1].todos
+      }
 
-      // Update in database
-      try {
-        await fetch(`/api/todos/${todoMoved.id}`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            status: finishCol.id,
-          }),
+      if (!startCol || !finishCol) {
+        return;
+      }
+
+      if (source.index === destination.index && startCol === finishCol) {
+        return;
+      }
+
+      const newTodos = startCol.todos;
+      const [todoMoved] = newTodos.splice(source.index, 1);
+
+      console.log(todoMoved);
+
+      if (startCol.id === finishCol.id) {
+        newTodos.splice(destination.index, 0, todoMoved);
+
+        const newCol = {
+          id: startCol.id,
+          todos: newTodos,
+        };
+
+        const newColumns = new Map(board.columns);
+        newColumns.set(startCol.id, newCol);
+
+        setBoardState({
+          ...board,
+          columns: newColumns,
+        })
+      } else {
+        const finishTodos = Array.from(finishCol.todos);
+        finishTodos.splice(destination.index, 0, todoMoved);
+
+        const newColumns = new Map(board.columns);
+        const newCol = {
+          id: startCol.id,
+          todos: newTodos,
+        };
+
+        newColumns.set(startCol.id, newCol);
+        newColumns.set(finishCol.id, {
+          id: finishCol.id,
+          todos: finishTodos,
         });
-      } catch (error) {
+
+
+        setBoardState({
+          ...board,
+          columns: newColumns,
+        });
+
+        // Update in database
         try {
-          await fetch(`/api/todos/${todoMoved.id}`, {
+          await fetch(`https://goal-keeper.vercel.app/api/todos/${todoMoved.id}`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -116,15 +112,21 @@ const Board = () => {
             }),
           });
         } catch (error) {
-          console.error(error);
+          try {
+            await fetch(`https://goal-keeper.vercel.app/api/todos/${todoMoved.id}`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                status: finishCol.id,
+              }),
+            });
+          } catch (error) {
+            console.error(error);
+          }
         }
       }
-
-
-      setBoardState({
-        ...board,
-        columns: newColumns,
-      });
     }
   };
 
