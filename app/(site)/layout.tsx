@@ -4,14 +4,14 @@ import ToasterContext from "@/app/context/ToasterContext";
 
 export const metadata = {
   title: 'Goalkeeper - Home',
-  description: 'Simple, lightweight & elegant task manager for the modern world',
+  description: 'Modern Task Manager with DnD and AI Summarizer',
   openGraph: {
     type: 'website',
     locale: 'en_IN',
     url: 'https://goalkeeper.vercel.app',
     title: "Goalkeeper - Home",
     siteName: 'Goalkeeper',
-    description: "Simple, lightweight & elegant task manager for the modern world",
+    description: "Modern Task Manager with DnD and AI Summarizer",
     images: [
       {
         url: 'images/logo.svg',
@@ -22,7 +22,7 @@ export const metadata = {
   },
   twitter: {
     title: "Goalkeeper - Home",
-    description: "Simple, lightweight & elegant task manager for the modern world",
+    description: "Modern Task Manager with DnD and AI Summarizer",
     card: "summary_large_image",
     images: [
       {

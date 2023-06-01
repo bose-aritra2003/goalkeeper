@@ -1,6 +1,21 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Goalkeeper: Modern Task Manager with DnD and AI Summarizer
 
-## Getting Started
+[Goalkeeper](https://goal-keeper.vercel.app) is a powerful web application designed to simplify your task management experience. With its intuitive drag and drop functionality and AI todo summarizer, Goalkeeper helps you stay organized and efficient.
+
+### Features:
+
+- **Drag and Drop:** Easily organize tasks by dragging and dropping them into different categories.
+- **AI Todo Summarizer:** Get concise summaries of your to-do items powered by GPT-3.5-Turbo.
+- **Not only Text:** You can also add images to your tasks to tailor them to your needs.
+- **Responsive Design:** Access Goalkeeper from any device with a fully responsive interface.
+- **Secure Authentication:** Protect your data with secure login options.
+- **Sleek and Modern Interface:** Enjoy a visually appealing and intuitive user interface.
+
+<hr />
+
+## This section is developers only
+
+### Getting Started
 
 First, run the development server:
 
@@ -13,19 +28,6 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
 ## Deploy on Vercel
 

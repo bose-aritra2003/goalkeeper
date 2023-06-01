@@ -5,14 +5,14 @@ import getCurrentUser from "@/app/actions/getCurrentUser";
 
 export const metadata = {
   title: 'Goalkeeper - Workspace',
-  description: 'Welcome to your goalkeeper workspace',
+  description: 'Welcome to your Goalkeeper workspace',
   openGraph: {
     type: 'website',
     locale: 'en_IN',
     url: 'https://goalkeeper.vercel.app',
     title: "Goalkeeper - Workspace",
     siteName: 'Goalkeeper',
-    description: "Welcome to your goalkeeper workspace",
+    description: "Welcome to your Goalkeeper workspace",
     images: [
       {
         url: 'images/logo.svg',
@@ -23,7 +23,7 @@ export const metadata = {
   },
   twitter: {
     title: "Goalkeeper - Workspace",
-    description: "Welcome to your goalkeeper workspace",
+    description: "Welcome to your Goalkeeper workspace",
     card: "summary_large_image",
     images: [
       {
