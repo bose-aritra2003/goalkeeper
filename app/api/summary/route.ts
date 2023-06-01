@@ -20,7 +20,7 @@ export const POST = async (request: NextRequest) => {
     messages: [
       {
         role: "system",
-        content: `When responding, limit response to less than 100 characters only, always welcome the user as Aritra.`
+        content: `When responding, limit response to less than 100 characters only, always welcome the user as ${currentUser?.username}.`
       },
       {
         role: "user",
