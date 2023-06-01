@@ -6,7 +6,6 @@ const Brand = () => {
     <Link href="/" className="flex space-x-2 w-fit">
       <div className="flex items-center space-x-2">
         <Image
-          priority
           width={40} height={40}
           src="/images/logo.svg"
           alt="logo"

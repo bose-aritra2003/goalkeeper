@@ -56,8 +56,8 @@ const Hero = () => {
       </div>
 
       <div className="w-fit px-2 xl:px-0 xl:pr-16 2xl:pr-36">
-        <Image priority className="2xl:hidden" width={600} height={600} src="/images/hero.svg" alt="hro image" />
-        <Image priority className="hidden 2xl:block" width={800} height={800} src="/images/hero.svg" alt="hro image" />
+        <Image priority className="2xl:hidden" width={600} height={600} src="/images/hero.svg" alt="hero image" />
+        <Image priority className="hidden 2xl:block" width={800} height={800} src="/images/hero.svg" alt="hero image" />
       </div>
     </div>
   );
