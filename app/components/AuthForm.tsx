@@ -34,14 +34,14 @@ const AuthForm = () => {
     setIsLoading(true);
     if (variant === "register") {
       try {
-        const res = await fetch('https://goal-keeper.vercel.app/api/register', {
+        await fetch('https://goal-keeper.vercel.app/api/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({username, email, password})
         })
-        toast.success(res.statusText);
+        toast.success("Account created successfully! Now sign in to continue");
         toggleVariant();
       } catch (error: any) {
         toast.error(error.response.data);

@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
       }
     );
 
-    return NextResponse.json({ user }, { statusText: "Account created successfully! Now sign in to continue" });
+    return NextResponse.json({ user });
   } catch (error: any) {
     console.log(error, 'REGISTRATION_ERROR');
     return new NextResponse('Email id already registered', { status: 500 });
