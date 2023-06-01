@@ -61,8 +61,6 @@ const Board = () => {
       const newTodos = startCol.todos;
       const [todoMoved] = newTodos.splice(source.index, 1);
 
-      console.log(todoMoved);
-
       if (startCol.id === finishCol.id) {
         newTodos.splice(destination.index, 0, todoMoved);
 
