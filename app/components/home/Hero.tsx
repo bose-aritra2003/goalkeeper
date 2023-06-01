@@ -31,7 +31,7 @@ const Hero = () => {
             </span>
           </div>
 
-          <p className="text-xl 2xl:text-2xl text-gray-500 font-light">Simple, lightweight & elegant task manager for the modern world.</p>
+          <p className="text-xl 2xl:text-2xl text-gray-500 font-light">Modern Task Manager with Drag & Drop and AI Task Summarizer.</p>
         </div>
         <div className="w-fit mx-auto xl:mx-0 xl:ml-1 flex flex-col items-center space-y-3 sm:space-y-0 sm:space-x-5 sm:flex-row">
           <button
