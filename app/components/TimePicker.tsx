@@ -6,7 +6,7 @@ function TimePicker(){
 
   useEffect(()=>{
       setInterval(()=>setTime(new Date()),60 * 1000)
-  },[setInterval, setTime])
+  },[setTime])
 
   return(
     <div className="flex sm:divide-x text-lg lg:text-xl w-fit font-bold text-white drop-shadow-md">

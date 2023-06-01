@@ -16,7 +16,7 @@ export const HamburgerAvatar = ({ image }: { image: string | null | undefined })
 
   useEffect(() => {
     setUserImage(image);
-  }, [setUserImage]);
+  }, [setUserImage, image]);
 
   const handleUpload = async (result: any) => {
     try {
