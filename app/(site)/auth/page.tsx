@@ -39,7 +39,7 @@ const Auth = () => {
       <div className="rounded-xl bg-gray-500/10 backdrop-blur-sm px-8 py-10 drop-shadow-lg sm:px-12">
         <div className="text-white flex flex-col space-y-7">
           <div className="mx-auto">
-            <Brand />
+            <Brand priority />
           </div>
           <AuthForm/>
         </div>

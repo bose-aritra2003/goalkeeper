@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const Brand = () => {
+const Brand = ({ priority }: {  priority: boolean }) => {
   return (
     <Link href="/" className="flex space-x-2 w-fit">
       <div className="flex items-center space-x-2">
         <Image
-          priority
+          priority={priority}
           width={40} height={40}
           src="/images/logo.svg"
           alt="logo"
