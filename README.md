@@ -1,3 +1,5 @@
+<img src="demo.png" alt="Colour Palette for Together" style="border-radius: 1rem; width: 75%;"/>
+
 # Goalkeeper: Modern Task Manager with DnD and AI Summarizer
 
 [Goalkeeper](https://goal-keeper.vercel.app) is a powerful web application designed to simplify your task management experience. With its intuitive drag and drop functionality and AI todo summarizer, Goalkeeper helps you stay organized and efficient.
